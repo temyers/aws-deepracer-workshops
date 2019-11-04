@@ -667,7 +667,7 @@ track_breakdown = {'reinvent2018': reinvent2018, 'london_loop': london_loop}
 def action_breakdown(df, iteration_ids, track_breakdown, center_line,
                      inner_border, outer_border,
                      action_names=['LEFT', 'RIGHT', 'STRAIGHT', 'SLIGHT LEFT',
-                                   'SLIGHT RIGHT', 'SLOW']):
+                                   'SLIGHT RIGHT', 'SLOW'], offset=0):
     fig = plt.figure(figsize=(16, 32))
 
     if type(iteration_ids) is not list:
@@ -687,7 +687,7 @@ def action_breakdown(df, iteration_ids, track_breakdown, center_line,
             print_border(ax, center_line, inner_border, outer_border)
 
             df_slice = df_iter[df_iter['reward'] >= th]
-            df_slice = df_slice[df_slice['action'] == idx]
+            df_slice = df_slice[df_slice['action'] == idx+offset]
 
             ax.plot(df_slice['x'], df_slice['y'], 'b.')
 

@@ -7,3 +7,5 @@ reward
 logs
 !logs/*-sample.log
 .ipynb_checkpoints
+**/__pycache__
+

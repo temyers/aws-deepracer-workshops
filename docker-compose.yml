@@ -1,0 +1,16 @@
+version: '2'
+services:
+  jupyter:
+    environment: 
+      - AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY
+      - AWS_PROFILE
+      - AWS_SESSION_TOKEN
+      - AWS_SECURITY_TOKEN
+    build: 
+      context: docker/jupyter
+    ports:
+      - 8888:8888
+    volumes: 
+      - .:/home/jovyan/work 
+      - ~/.aws:/home/jovyan/.aws
